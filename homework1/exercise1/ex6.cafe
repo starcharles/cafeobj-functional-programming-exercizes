@@ -1,0 +1,15 @@
+open NAT .
+    op ext-fib : Nat -> Nat .
+    var NzX : NzNat .
+    eq ext-fib(0) = 0 .
+    eq ext-fib(1) = 1 .
+    eq ext-fib(2) = 2 .
+    eq ext-fib(NzX) = ext-fib(p NzX) + ext-fib(p p NzX) + ext-fib(p p p NzX) .
+    -- TODO: tests
+    red ext-fib(0) .
+    red ext-fib(1) .
+    red ext-fib(2) .
+    red ext-fib(3) .
+    red ext-fib(4) .
+    red ext-fib(5) .
+close

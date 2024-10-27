@@ -1,0 +1,24 @@
+-- Exercise 4
+
+-- 4. Write two versions of programs computing the summation 0+1+2+...+n for a given number n, 
+-- where one corresponds to fact and the other corresponds to oedc-fact and do some testing for both versions
+
+-- version 1
+
+open NAT .
+    op sum : Nat -> Nat .
+    var NzX : NzNat .
+    -- definition
+    eq sum(0) = 0 .
+    eq sum(NzX) = NzX) + sum(p NzNat) .
+    -- example
+    red sum(0) . -- 0
+    red sum(1) . -- 1
+    red sum(10) . -- 55
+    red sum(1000) . -- 500500
+close
+
+
+-- version 2
+
+-- TODO...oedc-factのように定義する
