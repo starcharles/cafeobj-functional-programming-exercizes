@@ -1,0 +1,24 @@
+-- takeuchi function
+-- cited from : https://ja.wikipedia.org/wiki/%E7%AB%B9%E5%86%85%E9%96%A2%E6%95%B0
+
+-- Definition
+--- f(x,y,z) = 
+---     if x <= y then y
+---     else f(f(x-1,y,z),f(y-1,z,x),f(z-1,x,y))
+
+-- Exercise 9. 
+-- Find the definition of Takeuchi function, describe it in CafeOBJ and run it with some natural numbers. 
+-- Investigate why it takes time to compute Takeuchi function with even small natural numbers.
+
+-- TODO: what is proper answer for this exercise?
+
+open NAT . 
+    op takeuchi : Nat Nat Nat -> Nat .
+    var X Y Z : Nat .
+    eq takeuchi(X,Y,Z) = if X <= Y then Y else takeuchi(takeuchi(X-1,Y,Z),takeuchi(Y-1,Z,X),takeuchi(Z-1,X,Y)) .
+    -- TODO: tests      
+    red takeuchi(0,0,0) .
+    red takeuchi(1,0,1) .
+    red takeuchi(1,1,1) .
+    red takeuchi(1,2,3) .
+close

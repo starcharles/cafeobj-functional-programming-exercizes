@@ -1,0 +1,24 @@
+-- revised oedc-fact function
+
+-- TODO: make this work and take a screenshot.
+open NAT .
+    op _! : Nat -> Nat .
+    op if_then {_} else {_} : Bool Nat Nat -> Nat .
+    op g : Nat Nat -> Nat .
+    op oedc-fact2 : Nat -> Nat .
+    vars X Y : Nat . var NzX : NzNat .
+    -- _!
+    eq 0! = 1 . 
+    eq (NzX)! = NzX * (p NzX)! .
+    -- if_then_else
+    eq if true then {X} else {Y} = X .
+    eq if false then {X} else {Y} = Y .
+    -- g
+    eq g(X,Y) = if X > Y then g(X, 2 * Y, Y) * g(sd(X,Y), 2 * Y) else X .
+    -- oedc-fact2
+    eq oedc-fact2(0) = 1 .
+    eq oedc-fact2(NzX) = g(NzX, 1) .
+    -- compute
+    red oedc-fact2(1000) .
+    red 1 + 1 .
+close
